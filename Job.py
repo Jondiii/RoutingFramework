@@ -10,6 +10,8 @@ class Job:
     demand = []
     serviceTime = 0
     timeInLocation = 0
+    timeWindows = []
+    timeWindowMargin = 0  #A margin indicates how earlier a job can be done
 
     def __init__(self, id):
         self.id = id
@@ -58,3 +60,22 @@ class Job:
 
     def setTimeInLocation(self, time):
         self.timeInLocation = time
+
+    #Adds a new time window
+    def addTW(self, begin, end):
+        self.timeWindows.append([begin, end])
+
+    #Adds a new time window and a margin
+    def addTW(self, begin, end, margin):
+        self.timeWindows.append([begin, end])
+        self.setTimeWindowMargin = margin
+
+    #Simultaneously adds various time windows
+    def addVariousTW(self, begins, ends):
+        for begin, end in zip(begins, ends):
+            self.addTW(begin, end)
+
+    def setTimeWindowMargin(self, margin):
+        self.timeWindowMargin = margin
+
+    
