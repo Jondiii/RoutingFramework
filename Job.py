@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+
 class Job:
 
     id = 0
@@ -7,21 +8,23 @@ class Job:
     origin = []
     dest = []
     demand = []
+    serviceTime = 0
+    timeInLocation = 0
 
     def __init__(self, id):
         self.id = id
 
-    def setID(self, id):
+    def setId(self, id):
         self.id = id
 
     #Adds a new type
-    def addTypeData(self, description, cuantity):
-        self.typeData.append([description, cuantity])
+    def addTypeData(self, description, value):
+        self.typeData.append([description, value])
 
     #Simultaneously adds various types
-    def addVariousTypeData(self, descriptions, cuantities):
-        for description, cuantity in zip(descriptions, cuantities):
-            self.addTypeData(description, cuantity)
+    def addVariousTypeData(self, descriptions, values):
+        for description, value in zip(descriptions, values):
+            self.addTypeData(description, value)
 
     #Stablishes the origin as a pair of X and Y coordinates
     def setOrigin(self,x,y):
@@ -49,3 +52,9 @@ class Job:
     def addVariousDemands(self, descriptions, cuantities):
         for description, cuantity in zip(descriptions, cuantities):
             self.addDemand(description, cuantity)
+    
+    def setServiceTime(self, time):
+        self.serviceTime = time
+
+    def setTimeInLocation(self, time):
+        self.timeInLocation = time
