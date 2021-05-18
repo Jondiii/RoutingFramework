@@ -5,7 +5,7 @@ class Job:
 
     id = 0
     priority = 0 #Es algo que tiene Jsprit, lo ponemos como idea
-    typeData = []
+    typeData = [] #Job information and ADHOC constraints.
     origin = []
     dest = []
     demand = []
@@ -23,7 +23,7 @@ class Job:
     def setPriority(self, priority):
         self.priority = priority
 
-        #Adds a new type
+    #Adds a new type
     def addTypeData(self, description, value):
         self.typeData.append([description, value])
 
