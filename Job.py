@@ -3,28 +3,37 @@ class Job:
 
     id = 0
     typeData = []
-    origin = [0,0]
-    dest = [0,0]
-    demand = 0
+    origin = []
+    dest = []
+    demand = []
 
     def __init__(self, id):
         self.id = id
 
+    def setID(self, id):
+        self.id = id
+
+    #Adds a new single type
     def addTypeData(self, description, cuantity):
         self.typeData.append([description, cuantity])
 
-    #Establece el origen como coordenada X y coordenada Y
+    #Simultaneously adds various types
+    def addVariousTypeData(self, descriptions, cuantities):
+        for description, cuantity in zip(descriptions, cuantities):
+            self.addTypeData(description, cuantity)
+
+    #Stablishes the origin as a pair of X and Y coordinates
     def setOrigin(self,x,y):
         self.origin=[x,y]
     
-    #Establece el destino como coordenada X y coordenada Y
+    #Stablishes the origin as a pair of X and Y coordinates
     def setDestination(self,x,y):
         self.dest=[x,y]
 
-    #Establece el origen como un punto en el espacio
+    #Stablishes the origin as a point in space
     def setOrigin(self,value):
         self.origin=[value]
     
-    #Establece el destino como un punto en el espacio
+    #Stablishes the origin as a point in space
     def setDestination(self,value):
         self.dest=[value]
