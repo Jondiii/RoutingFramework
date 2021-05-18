@@ -1,4 +1,5 @@
-
+import pandas as pd
+import numpy as np
 class Job:
 
     id = 0
@@ -13,7 +14,7 @@ class Job:
     def setID(self, id):
         self.id = id
 
-    #Adds a new single type
+    #Adds a new type
     def addTypeData(self, description, cuantity):
         self.typeData.append([description, cuantity])
 
@@ -37,3 +38,14 @@ class Job:
     #Stablishes the origin as a point in space
     def setDestination(self,value):
         self.dest=[value]
+    
+    #TODO de momento solo es una copia del addType
+    #Adds a new demand
+    def addDemand(self, description, cuantity):
+        self.demand.append([description, cuantity])
+
+    #TODO de momento solo es una copia del addVariousTypes
+    #Simultaneously adds various demands
+    def addVariousDemands(self, descriptions, cuantities):
+        for description, cuantity in zip(descriptions, cuantities):
+            self.addDemand(description, cuantity)
