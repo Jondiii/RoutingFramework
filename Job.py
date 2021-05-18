@@ -4,6 +4,7 @@ import numpy as np
 class Job:
 
     id = 0
+    priority = 0 #Es algo que tiene Jsprit, lo ponemos como idea
     typeData = []
     origin = []
     dest = []
@@ -19,7 +20,10 @@ class Job:
     def setId(self, id):
         self.id = id
 
-    #Adds a new type
+    def setPriority(self, priority):
+        self.priority = priority
+
+        #Adds a new type
     def addTypeData(self, description, value):
         self.typeData.append([description, value])
 
