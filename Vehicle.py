@@ -22,22 +22,23 @@ class Vehicle:
     def __init__(self, id) :
         self.id = id
 
+    #Adds a new type
     def addTypeData(self, description, cuantity):
         self.typeData.append([description, cuantity])
 
-    #Define the origin with a set of coordinates (x,y)
+    #Simultaneously adds various types
     def setOrigin(self,x,y):
         self.origin=[x,y]
     
-    #Define the destination with a set of coordinates (x,y)
+   #Stablishes the origin as a pair of X and Y coordinates
     def setDestination(self,x,y):
         self.dest=[x,y]
 
-    #Define the origin like a point in the space
+    #Stablishes the origin as a point in space
     def setOrigin(self,value):
         self.origin=[value]
     
-    #Define the destination like a point in the space
+   #Stablishes the destination as a point in space
     def setDestination(self,value):
         self.dest=[value]
 
@@ -63,5 +64,8 @@ class Vehicle:
     def setDayBreakTime(self, DayBreakTime): 
         self.DayBreakTime = DayBreakTime
 
+    #TODO 
+    def addCapacity(self, frontCapacity, backCapacity): 
+        self.capacity.append([frontCapacity, backCapacity ])
 
 
