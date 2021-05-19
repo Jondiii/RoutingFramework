@@ -18,6 +18,9 @@ class Vehicle:
     dayDriveTime = 720
     dayBreakTime = 600
 
+    kilometerBreakTime=10 #10 minutos para repostar
+    kilometerDriveTime=360 #tiempo que tarda en repostar 360 por poner algo 
+
 
     def __init__(self, id) :
         self.id = id
@@ -43,7 +46,7 @@ class Vehicle:
         self.dest=[value]
 
     # Define the max amount of time a driver can drive without making a break 
-    # hourDriveTime - minutes
+    # hourDriveTime - minutcityes
     def setHourDriveTime(self, hourDriveTime): 
         self.hourDriveTime = hourDriveTime
     
@@ -68,4 +71,8 @@ class Vehicle:
     def addCapacity(self, frontCapacity, backCapacity): 
         self.capacity.append([frontCapacity, backCapacity ])
 
+    def setKilometerBreakTime(self,breakTime):
+        self.kilometerBreakTime=breakTime
 
+    def setKilometerDriveTime(self, driveTime):
+        self.kilometerDriveTime=driveTime
