@@ -19,7 +19,7 @@ class Vehicle:
     dayBreakTime = 600
 
     kilometerBreakTime=10 #descanso para repostar en minutos
-    kilometerDriveTime=360 #tiempo que tarda en repostar 360 por poner algo 
+    maxKmWithoutBreak=500 #km que puede recorrer sin repostar
 
 
     def __init__(self, id) :
@@ -74,5 +74,5 @@ class Vehicle:
     def setKilometerBreakTime(self,breakTime):
         self.kilometerBreakTime=breakTime
 
-    def setKilometerDriveTime(self, driveTime):
-        self.kilometerDriveTime=driveTime
+    def setMaxKmWithoutBreak(self, maxKM):
+        self.kilometerDriveTime=maxKM
