@@ -4,17 +4,12 @@ class Route:
     jobs = []
     typeData = [] #Can be used as route constrains
 
-    def __init__(self):
-        pass
-
-    def __init__(self, vehicle):
+    def __init__(self, vehicle, jobs=None):
         self.vehicle = vehicle
 
-    def __init__(self, vehicle, jobs):
-        self.vehicle = vehicle
-
-        for job in jobs:
-            self.jobs.append(job)
+        if jobs != None:
+            for job in jobs:
+                self.jobs.append(job)
 
     #Adds a new type
     def addTypeData(self, description, value):
