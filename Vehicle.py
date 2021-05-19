@@ -11,7 +11,8 @@ class Vehicle:
     dest = [0,0] # Last Drop Off
 
     capacity = []
-    
+    currentLoad = []
+
     hourDriveTime = 240 
     hourBreakTime = 45
 
@@ -69,7 +70,8 @@ class Vehicle:
 
     #TODO 
     def addCapacity(self, frontCapacity, backCapacity): 
-        self.capacity.append([frontCapacity, backCapacity ])
+        self.capacity.append([frontCapacity, backCapacity])
+        self.currentLoad.append([0, 0])
 
     def setKilometerBreakTime(self,breakTime):
         self.kilometerBreakTime=breakTime
