@@ -7,11 +7,12 @@ class Vehicle:
     # MinLoad    10
     typeData = []
     
-    origin = [0,0] # First Pick Up
-    dest = [0,0] # Last Drop Off
+    origin = [0,0]  # First Pick Up
+    dest = [0,0]    # Last Drop Off
 
-    capacity = []
-    currentLoad = []
+    capacity = []    # Max capacity of the vehicle
+    currentLoad = [] # Current load of the vehicle
+    minLoad = []     # Minimum load the vehicle must carry
 
     hourDriveTime = 240 
     hourBreakTime = 45
@@ -62,16 +63,17 @@ class Vehicle:
     def setDayDriveTime(self, DayDriveTime): 
         self.DayDriveTime = DayDriveTime
    
-
     # Define the min amount of time a driver should stop to take a break after a DayHourTime
     # DayBreakTime - minutes
     def setDayBreakTime(self, DayBreakTime): 
         self.DayBreakTime = DayBreakTime
 
-    #TODO 
-    def addCapacity(self, frontCapacity, backCapacity): 
+    # Adds a new section to the vehicle which can carry a load.
+    # A minimum load that must be carried during the route can be stablished. The default amount is 0.
+    def addCapacity(self, frontCapacity, backCapacity, minFrontLoad=0, minBackLoad=0): 
         self.capacity.append([frontCapacity, backCapacity])
         self.currentLoad.append([0, 0])
+        self.minLoad.append([minFrontLoad, minBackLoad])
 
     def setKilometerBreakTime(self,breakTime):
         self.kilometerBreakTime=breakTime
