@@ -18,7 +18,7 @@ class Vehicle:
     dayDriveTime = 720
     dayBreakTime = 600
 
-    kilometerBreakTime=10 #10 minutos para repostar
+    kilometerBreakTime=10 #descanso para repostar en minutos
     kilometerDriveTime=360 #tiempo que tarda en repostar 360 por poner algo 
 
 
