@@ -11,11 +11,14 @@ class ConstraintManager:
 
     def checkConstraints(self, Route):
         vehicle = Route.vehicle
-
-        if(checkMaxCapacity(vehicle) < vehicle.load):
-            return False
+        maxCapacity=self.checkMaxCapacity(vehicle)
+        minCapacity=self.checkMinLoad(vehicle)
+        for i in range (0,len(maxCapacity)):
+            if (maxCapacity[i]<vehicle.currentLoad[i]):
+                #if(checkMaxCapacity(vehicle) < vehicle.load):#esto esta mal si gestionamos capacity como bidimensional
+                return False
         
-        if(checkMinLoad(vehicle) > vehicle.load):
-            return False
+            if(minCapacity[i] > vehicle.currentLoad[i]):
+                return False
 
         return True
