@@ -1,44 +1,57 @@
+from Location import Location
 import pandas as pd
 import numpy as np
 
 class Job:
 
-    id = 0
+    id_job = 0
     priority = 0 #Es algo que tiene Jsprit, lo ponemos como idea
-    typeData = [] #Job information and ADHOC constraints.
-    origin = []
-    dest = []
+    specialData = [] #Job information and ADHOC constraints.
+    origin =  Location.init(0,0)
+    destination =  Location.init(0,0)
     demand = []
-    serviceTime = 0
-    timeInLocation = 0
-    timeWindows = []
+   
+    pickupservicetime = 0 
+    dropoffservicetime = 0 
+
+    #timeInLocation = 0
+    timeInLocationForPickUp = 0 
+    timeInLocationForDelivery = 0
+
+    #timeWindows = []
+    timeWindowsPickUp = []
+    timeWindowDelivery = []
+    
     timeWindowMargin = 0  #A margin indicates how earlier a job can be done
 
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, id_job):
+        self.id_job = id_job
 
-    def setId(self, id):
-        self.id = id
+    def setId(self, id_job):
+        self.id_job = id_job
 
     def setPriority(self, priority):
         self.priority = priority
 
     #Adds a new type
-    def addTypeData(self, description, value):
-        self.typeData.append([description, value])
+    def addSpecialData(self, description, value):
+        self.specialData.append([description, value])
 
     #Simultaneously adds various types
-    def addVariousTypeData(self, descriptions, values):
+    def addVariousSpecialData(self, descriptions, values):
         for description, value in zip(descriptions, values):
-            self.addTypeData(description, value)
+            self.addSpecialData(description, value)
 
-    #Stablishes the origin as a pair of X and Y coordinates
+    #Simultaneously adds various types
     def setOrigin(self,x,y):
-        self.origin=[x,y]
+        #self.origin=[x,y]
+        self.origin(x, y)
     
-    #Stablishes the origin as a pair of X and Y coordinates
+   #Stablishes the origin as a pair of X and Y coordinates
     def setDestination(self,x,y):
-        self.dest=[x,y]
+        self.destination(x, y)
+        #self.destination=[x,y]
+
 
     #Stablishes the origin as a point in space
     def setOrigin(self,value):
@@ -46,7 +59,7 @@ class Job:
     
     #Stablishes the origin as a point in space
     def setDestination(self,value):
-        self.dest=[value]
+        self.destination=[value]
     
     #TODO de momento solo es una copia del addType
     #Adds a new demand
@@ -59,12 +72,37 @@ class Job:
         for description, cuantity in zip(descriptions, cuantities):
             self.addDemand(description, cuantity)
     
-    def setServiceTime(self, time):
-        self.serviceTime = time
+    #def setServiceTime(self, time):
+    #    self.serviceTime = time
 
-    def setTimeInLocation(self, time):
-        self.timeInLocation = time
+    def setPickupServiceTime(self, pickupservicetime): 
+        self.pickupservicetime = pickupservicetime
 
+    def setDropoffServiceTime (self, dropoffservicetime): 
+        self.dropoffservicetime = dropoffservicetime
+
+    def setTimeInLocationForPickUp(self, timeInLocationForPickUp):
+        self.timeInLocationForPickUp = timeInLocationForPickUp
+
+    def setTimeInLocationForDelivery(self, timeInLocationForDelivery): 
+        self.timeInLocationForDelivery = timeInLocationForDelivery
+    
+    
+    #Adds a new time window
+    def addTW(self, begin, end):
+        self.timeWindows.append([begin, end])
+
+    #Adds a new time window and a margin
+    def addTW(self, begin, end, margin):
+        self.timeWindows.append([begin, end])
+        self.setTimeWindowMargin = margin
+
+    #Simultaneously adds various time windows
+    def addVariousTW(self, begins, ends):
+        for begin, end in zip(begins, ends):
+            self.addTW(begin, end)
+
+    
     #Adds a new time window
     def addTW(self, begin, end):
         self.timeWindows.append([begin, end])

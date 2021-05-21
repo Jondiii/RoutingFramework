@@ -4,6 +4,8 @@ class Route:
     jobs = []
     typeData = [] #Can be used as route constrains
 
+    currentLoad = [] # Current load of the vehicle
+
     def __init__(self, vehicle, jobs=None):
         self.vehicle = vehicle
 

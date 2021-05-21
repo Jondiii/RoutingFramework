@@ -1,18 +1,23 @@
 
+from Location import Location
+
+
 class Vehicle: 
-    id = 0; 
+    id_vehicle = 0; 
     # TYPE will be a matrix that will look like this: 
     # Company    Nestle
     # MTR        600
     # MinLoad    10
-    typeData = []
+    specialData = []
     
-    origin = [0,0]  # First Pick Up
-    dest = [0,0]    # Last Drop Off
+    #origin = [0,0]  # First Pick Up
+    #destination = [0,0]    # Last Drop Off
+
+    origin = Location.init(0,0)
+    destination = Location.init(0,0)
 
     capacity = []    # Max capacity of the vehicle
-    currentLoad = [] # Current load of the vehicle
-    minLoad = []     # Minimum load the vehicle must carry
+    
 
     hourDriveTime = 240 
     hourBreakTime = 45
@@ -24,28 +29,31 @@ class Vehicle:
     maxKmWithoutBreak=500 #km que puede recorrer sin repostar
 
 
-    def __init__(self, id) :
-        self.id = id
+    def __init__(self, id_vehicle) :
+        self.id_vehicle = id_vehicle
 
     #Adds a new type
-    def addTypeData(self, description, cuantity):
-        self.typeData.append([description, cuantity])
+    def addSpecialData(self, description, cuantity):
+        self.specialData.append([description, cuantity])
 
     #Simultaneously adds various types
     def setOrigin(self,x,y):
-        self.origin=[x,y]
+        #self.origin=[x,y]
+        self.origin(x, y)
     
    #Stablishes the origin as a pair of X and Y coordinates
     def setDestination(self,x,y):
-        self.dest=[x,y]
+        self.destination(x, y)
+        #self.destination=[x,y]
 
     #Stablishes the origin as a point in space
     def setOrigin(self,value):
         self.origin=[value]
+        
     
    #Stablishes the destination as a point in space
     def setDestination(self,value):
-        self.dest=[value]
+        self.destination=[value]
 
     # Define the max amount of time a driver can drive without making a break 
     # hourDriveTime - minutcityes
@@ -69,11 +77,10 @@ class Vehicle:
         self.DayBreakTime = DayBreakTime
 
     # Adds a new section to the vehicle which can carry a load.
-    # A minimum load that must be carried during the route can be stablished. The default amount is 0.
-    def addCapacity(self, frontCapacity, backCapacity, minFrontLoad=0, minBackLoad=0): 
+    def addCapacity(self, frontCapacity, backCapacity): 
         self.capacity.append([frontCapacity, backCapacity])
-        self.currentLoad.append([0, 0])
-        self.minLoad.append([minFrontLoad, minBackLoad])
+
+
 
     def setKilometerBreakTime(self,breakTime):
         self.kilometerBreakTime=breakTime
