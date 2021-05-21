@@ -11,8 +11,8 @@ class Job:
     destination =  Location.init(0,0)
     demand = []
    
-    pickupservicetime = 0 
-    dropoffservicetime = 0 
+    pickupServiceTime = 0 
+    dropoffServiceTime = 0 
 
     #timeInLocation = 0
     timeInLocationForPickUp = 0 
@@ -67,23 +67,23 @@ class Job:
     
     #TODO de momento solo es una copia del addType
     #Adds a new demand
-    def addDemand(self, description, cuantity):
-        self.demand.append([description, cuantity])
+    def addDemand(self, description, quantity):
+        self.demand.append([description, quantity])
 
     #TODO de momento solo es una copia del addVariousTypes
     #Simultaneously adds various demands
-    def addVariousDemands(self, descriptions, cuantities):
-        for description, cuantity in zip(descriptions, cuantities):
-            self.addDemand(description, cuantity)
+    def addVariousDemands(self, descriptions, quantities):
+        for description, quantity in zip(descriptions, quantities):
+            self.addDemand(description, quantity)
     
     #def setServiceTime(self, time):
     #    self.serviceTime = time
 
-    def setPickupServiceTime(self, pickupservicetime): 
-        self.pickupservicetime = pickupservicetime
+    def setPickupServiceTime(self, pickupServiceTime): 
+        self.pickupServiceTime = pickupServiceTime
 
-    def setDropoffServiceTime (self, dropoffservicetime): 
-        self.dropoffservicetime = dropoffservicetime
+    def setDropoffServiceTime (self, dropoffServiceTime): 
+        self.dropoffServiceTime = dropoffServiceTime
 
     def setTimeInLocationForPickUp(self, timeInLocationForPickUp):
         self.timeInLocationForPickUp = timeInLocationForPickUp
