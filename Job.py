@@ -20,9 +20,13 @@ class Job:
 
     #timeWindows = []
     timeWindowsPickUp = []
+    pickupTimeWindowMargin = 0 
+
     timeWindowDelivery = []
+    deliveryTimeWindowMargin = 0
     
-    timeWindowMargin = 0  #A margin indicates how earlier a job can be done
+    #timeWindowMargin = 0  #A margin indicates how earlier a job can be done
+
 
     def __init__(self, id_job):
         self.id_job = id_job
@@ -89,35 +93,39 @@ class Job:
     
     
     #Adds a new time window
-    def addTW(self, begin, end):
-        self.timeWindows.append([begin, end])
+    def addTWPickup(self, begin, end):
+        self.timeWindowsPickUp.append([begin, end])
 
     #Adds a new time window and a margin
-    def addTW(self, begin, end, margin):
-        self.timeWindows.append([begin, end])
-        self.setTimeWindowMargin = margin
+    def addTWPickup(self, begin, end, margin):
+        self.timeWindowsPickUp.append([begin, end])
+        self.setPickUpTimeWindowMargin = margin
 
     #Simultaneously adds various time windows
-    def addVariousTW(self, begins, ends):
+    def addVariousPickUpTW(self, begins, ends):
         for begin, end in zip(begins, ends):
-            self.addTW(begin, end)
+            self.addTWPickup(begin, end)
 
+    def setPickUpTimeWindowMargin(self, margin):
+        self.pickupTimeWindowMargin = margin
     
     #Adds a new time window
-    def addTW(self, begin, end):
-        self.timeWindows.append([begin, end])
+    def addTWDelivery(self, begin, end):
+        self.timeWindowDelivery.append([begin, end])
 
     #Adds a new time window and a margin
-    def addTW(self, begin, end, margin):
-        self.timeWindows.append([begin, end])
-        self.setTimeWindowMargin = margin
+    def addTWDelivery(self, begin, end, margin):
+        self.timeWindowDelivery.append([begin, end])
+        self.setDeliveryTimeWindowMargin = margin
 
     #Simultaneously adds various time windows
-    def addVariousTW(self, begins, ends):
+    def addVariousDeliveryTW(self, begins, ends):
         for begin, end in zip(begins, ends):
-            self.addTW(begin, end)
+            self.addTWDelivery(begin, end)
 
-    def setTimeWindowMargin(self, margin):
-        self.timeWindowMargin = margin
+    def setDeliveryTimeWindowMargin(self, margin):
+        self.deliveryTimeWindowMargin = margin
+
+   
 
     
