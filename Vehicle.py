@@ -47,7 +47,6 @@ class Vehicle:
     def setOrigin(self,value):
         self.origin=[value]
         
-    
    #Stablishes the destination as a point in space
     def setDestination(self,value):
         self.destination=[value]

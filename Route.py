@@ -1,10 +1,13 @@
 class Route:
 
-    vehicle = ""
+    vehicle = None
     jobs = []
-    typeData = [] #Can be used as route constrains
+    specialData = [] #Can be used as route constrains
 
     currentLoad = [] # Current load of the vehicle
+    maxCapacity = []
+
+    routeDuration = 0
 
     def __init__(self, vehicle, jobs=None):
         self.vehicle = vehicle
@@ -14,11 +17,11 @@ class Route:
                 self.jobs.append(job)
 
     #Adds a new type
-    def addTypeData(self, description, value):
-        self.typeData.append([description, value])
+    def addSpecialData(self, description, value):
+        self.specialData.append([description, value])
 
     #Simultaneously adds various types
-    def addVariousTypeData(self, descriptions, values):
+    def addVariousSpecialData(self, descriptions, values):
         for description, value in zip(descriptions, values):
-            self.addTypeData(description, value)
+            self.specialData(description, value)
 
