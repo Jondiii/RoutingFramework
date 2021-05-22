@@ -5,7 +5,7 @@ import numpy as np
 class Job:
 
     id_job = 0
-    priority = 0 #Es algo que tiene Jsprit, lo ponemos como idea
+    priority = 0     #Es algo que tiene Jsprit, lo ponemos como idea
     specialData = [] #Job information and ADHOC constraints.
     origin =  Location.init(0,0)
     destination =  Location.init(0,0)
@@ -14,19 +14,15 @@ class Job:
     pickupServiceTime = 0 
     dropoffServiceTime = 0 
 
-    #timeInLocation = 0
     timeInLocationForPickUp = 0 
     timeInLocationForDelivery = 0
 
-    #timeWindows = []
     timeWindowsPickUp = []
     pickupTimeWindowMargin = 0 
 
     timeWindowDelivery = []
     deliveryTimeWindowMargin = 0
     
-    #timeWindowMargin = 0  #A margin indicates how earlier a job can be done
-
 
     def __init__(self, id_job):
         self.id_job = id_job

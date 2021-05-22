@@ -4,20 +4,17 @@ from Location import Location
 
 class Vehicle: 
     id_vehicle = 0; 
+   
     # TYPE will be a matrix that will look like this: 
     # Company    Nestle
     # MTR        600
     # MinLoad    10
-    specialData = []
-    
-    #origin = [0,0]  # First Pick Up
-    #destination = [0,0]    # Last Drop Off
+    specialData = [] #Vehicle information and ADHOC constraints.
 
-    origin = Location.init(0,0)
-    destination = Location.init(0,0)
+    origin = Location.init(0,0)      # First Pick Up
+    destination = Location.init(0,0) # Last Drop Off
 
     capacity = []    # Max capacity of the vehicle
-    
 
     hourDriveTime = 240 
     hourBreakTime = 45
@@ -79,8 +76,6 @@ class Vehicle:
     # Adds a new section to the vehicle which can carry a load.
     def addCapacity(self, frontCapacity, backCapacity): 
         self.capacity.append([frontCapacity, backCapacity])
-
-
 
     def setKilometerBreakTime(self,breakTime):
         self.kilometerBreakTime=breakTime
