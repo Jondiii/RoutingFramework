@@ -11,8 +11,8 @@ class Vehicle:
     # MinLoad    10
     specialData = [] #Vehicle information and ADHOC constraints.
 
-    origin = Location.init(0,0)      # First Pick Up
-    destination = Location.init(0,0) # Last Drop Off
+    origin = Location(0,0)      # First Pick Up
+    destination = Location(0,0) # Last Drop Off
 
     capacity = []    # Max capacity of the vehicle
 
@@ -74,6 +74,8 @@ class Vehicle:
 
     # Adds a new section to the vehicle which can carry a load.
     def addCapacity(self, frontCapacity, backCapacity): 
+        #TODO array de capacidades multidimensional para diferentes tipos de capacidad
+        #pero porque front y back?? puede medirse en Kilos en Volumen y otros
         self.capacity.append([frontCapacity, backCapacity])
 
     def setKilometerBreakTime(self,breakTime):

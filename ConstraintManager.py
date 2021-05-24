@@ -11,12 +11,14 @@ class ConstraintManager:
 
     def checkConstraints(self, route):
         vehicle = route.vehicle
-        maxCapacity=self.checkMaxCapacity(vehicle)    
-        minLoad=self.checkMinLoad(vehicle)
+        maxCapacity=self.checkMaxCapacity(route)    
+        minLoad=self.checkMinLoad(route)
         for i in range (0,len(maxCapacity)):
-            if (maxCapacity[i]<vehicle.currentLoad[i]):
+            if (maxCapacity[i]<route.currentLoad[i]):
                 return False
-
+        for i in range (0, len(minLoad)):
+            if (minLoad>route.currentLoad[i]):
+                return False
         return True
 
 """ # Así es como se me ocurre que podríamos comprobar los constrains introducidos en special data (esto iría dentro de checkConstraints).
